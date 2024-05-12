@@ -1,8 +1,23 @@
+# import requests
+
+# url = "https://api.balldontlie.io/v1/players"
+
+# players = requests.get(url, headers=headers)
+
+# jsonplayers = players.json()
+# print(jsonplayers)
+
 import requests
 
-url = "https://api.balldontlie.io/v1/players"
-headers = {"Authorization": "3ecb5d27-0392-49d2-93e2-078d75e9b478"}
-players = requests.get(url, headers=headers)
+url = "https://api-nba-v1.p.rapidapi.com/players"
 
-jsonplayers = players.json()
-print(jsonplayers)
+querystring = {"team":"1","season":"2021"}
+
+headers = {
+	"X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+	"X-RapidAPI-Host": "api-nba-v1.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers, params=querystring)
+
+print(response.json())
